@@ -1,0 +1,282 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Student Portfolio</title>
+  <meta name="description" content="Light-themed student portfolio — web developer, IoT enthusiast, projects & contact." />
+  <style>
+    /* ---------- Root & Theme ---------- */
+    :root{
+      --bg: #f7fafc; /* very light */
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #2563eb; /* blue */
+      --glass: rgba(255,255,255,0.6);
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(15,23,42,0.06);
+      --mono: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--mono);
+      background:linear-gradient(180deg, var(--bg), #ffffff 60%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding-bottom:60px;
+    }/* ---------- Layout ---------- */
+.container{max-width:1100px;margin:0 auto;padding:28px}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#fff,#eef2ff);display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:var(--shadow)}
+.brand h1{font-size:18px;margin:0}
+nav{display:flex;gap:14px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+nav a:hover{background:#eef2ff;color:var(--accent)}
+
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:36px 0}
+.intro h2{margin:0;font-size:30px}
+.intro p{color:var(--muted);margin:12px 0 18px}
+.cta{display:flex;gap:12px}
+.btn{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(37,99,235,0.18)}
+.btn-outline{border:1px solid #e6eefb;color:var(--accent);background:transparent}
+
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+.profile-img{width:100%;height:360px;border-radius:10px;background:linear-gradient(180deg,#f3f4f6,#ffffff);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px}
+
+/* ---------- Sections ---------- */
+section{margin-top:32px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skill{background:#f8fafc;padding:8px 10px;border-radius:8px;border:1px solid #f1f5f9;color:#0f172a;font-size:14px}
+
+.project{display:flex;gap:14px;align-items:flex-start}
+.project .meta{flex:1}
+.project h3{margin:4px 0}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:#eef2ff;padding:6px 8px;border-radius:8px;font-size:13px;color:var(--accent)}
+
+/* ---------- Contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form input,form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eefb;font-family:inherit}
+form button{margin-top:8px}
+
+/* ---------- Footer ---------- */
+footer{margin-top:48px;text-align:center;color:var(--muted);font-size:14px}
+
+/* ---------- Utilities & Small screens ---------- */
+@media (max-width:980px){.hero{grid-template-columns:1fr} .profile-img{height:260px}}
+@media (max-width:720px){.grid-3{grid-template-columns:1fr} .contact-grid{grid-template-columns:1fr} nav{display:none}}
+
+/* ---------- Simple Animation Helpers ---------- */
+.fade-up{opacity:0;transform:translateY(18px);transition:all 600ms cubic-bezier(.16,.84,.34,1)}
+.fade-up.visible{opacity:1;transform:none}
+.typing{border-right:2px solid rgba(15,23,42,0.8);padding-right:6px}
+
+/* small touches */
+.small{font-size:13px;color:var(--muted)}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);backdrop-filter:blur(6px);border:1px solid rgba(15,23,42,0.03)}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">LG</div>
+        <div>
+          <h1>Lobhas Gawande</h1>
+          <div class="small">B.Tech Computer Science Engineering (IoT) — Student</div>
+        </div>
+      </div><nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="intro">
+      <div class="pill small">Open to Internships</div>
+      <h2 class="fade-up" id="headline">Hi — I'm <span id="name">Lobhas</span></h2>
+        <p>Building Skills for Future in Tech</p>
+
+      <div class="cta fade-up">
+        <a class="btn" href="#contact">Contact Me</a>
+        <a class="btn btn-outline" href="assests/lobhas resume .pdf" download>Download Resume</a>
+      </div>
+
+      <div style="margin-top:18px" class="small fade-up">
+        <strong>Location:</strong> Nagpur, Maharashtra, India  • <strong>Email:</strong> lobhasgawande42@gmail.com
+      </div>
+    </div>
+
+    <aside class="card profile-img fade-up">
+      <!-- Replace with a real image or avatar -->
+      <div>
+       <img src="image.png" alt="Lobhas Gawande Photo" style="width:100%;height:auto;border-radius:8px;margin-top:12px"/>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="fade-up">
+    <div class="card">
+      <h3>About</h3>
+      <p class="small">I'm a motivated Computer Science student focusing on web development and Internet of Things. I enjoy turning ideas into prototypes — from concept, UI, to a working backend. I have hands-on experience with Python, Django and HTML/CSS/JS. </p>
+      <p class="small">Currently, I'm seeking internship opportunities to apply my skills in real-world projects and further enhance my knowledge. I'm passionate about learning new technologies and collaborating on innovative solutions.</p>
+      <p class="small">In my free time, I enjoy exploring tech blogs, experimenting with small coding projects, and staying updated with the latest trends in web development and IoT.</p>
+      <p class="small">Feel free to reach out if you'd like to connect or discuss potential opportunities!</p>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-up">
+    <h3 style="margin-bottom:8px">Skills</h3>
+    <div class="card">
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Python</span>
+        <span class="skill">Django</span>
+
+        <span class="skill">Internet of Things (IoT)</span>
+        <span class="skill">Git & GitHub</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="fade-up">
+    <h3 style="margin-bottom:8px">Projects</h3>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <!-- Project 1 -->
+      <div class="project">
+        <div style="width:140px;height:100px;border-radius:8px;background:#f8fafc;display:flex;align-items:center;justify-content:center;border:1px solid #eef2ff">IMG</div>
+        <div class="meta">
+          <h3>QuickMeds — Online Medicine Delivery</h3>
+          <p class="small">A Django-based platform for browsing medicines, managing cart and orders, and delivery tracking. Built with Python, Django, MySQL and frontend HTML/CSS/JS.</p>
+          <div class="tags" style="margin-top:8px">
+            <span class="tag">Django</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Web App</span>
+          </div>
+        </div>
+      </div>
+
+    
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="fade-up">
+    <h3 style="margin-bottom:8px">Education</h3>
+    <div class="card grid-3" style="grid-template-columns:1fr 1fr; align-items:center">
+      <div>
+        <h4>B.Tech — Computer Science & Engineering (IoT)</h4>
+        <div class="small">GH Raisoni College of Engineering — 2025 - 2028</div>
+      </div>
+      <div>
+        <h4>Diploma — Computer Technology</h4>
+        <div class="small">MSBTE — 2022 - 2025</div>
+      </div>
+      <div>
+        <h4>Secondary School</h4>
+        <div class="small">Sanjuba High School — 2010 - 2022</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-up">
+    <h3 style="margin-bottom:8px">Contact</h3>
+    <div class="card contact-grid">
+      <div>
+        <h4>Get in touch</h4>
+        <p class="small">I'm open to internships and collaborations. Send a short message or connect on GitHub / LinkedIn.</p>
+        <div style="margin-top:12px">
+          <div class="small"><strong>GitHub:</strong> <a href="https://github.com/lobh42">github.com/lobh42</a></div>
+          <div class="small"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lobhas-gawande">linkedin.com/in/lobhas-gawande</a></div>
+          <div class="small"><strong>Email:</strong> <a href="mailto:lobhasgawande42@gmail.com">lobhasgawande42@gmail.com.com</a></div>
+        </div>
+      </div>
+
+      <div>
+        <form onsubmit="fakeSubmit(event)">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required style="margin-top:8px" />
+          <textarea name="message" rows="4" placeholder="Message" style="margin-top:8px"></textarea>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="small">©️ <span id="year"></span> Let’s build something amazing together! 🚀  </div>
+    <div class="small">Lobhas Gawande</div>
+  </footer>
+</main>
+
+  </div>  <script>
+    // Small JS for typing effect, reveal on scroll, and fake form submit
+    const name = document.getElementById('name');
+    const headline = document.getElementById('headline');
+    const sub = document.getElementById('sub');
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    // Typing effect for sub headline
+    const words = ["Web Developer","IoT Enthusiast","Problem Solver"];
+    let wIndex = 0;
+    let charIndex = 0;
+    function type() {
+      const txt = words[wIndex];
+      sub.classList.add('typing');
+      sub.textContent = txt.slice(0, charIndex);
+      charIndex++;
+      if (charIndex > txt.length) {
+        setTimeout(() => { charIndex = 0; wIndex = (wIndex+1) % words.length; }, 900);
+      }
+      setTimeout(type, 120);
+    }
+    // start typing after small delay
+    setTimeout(type, 600);
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('visible');
+      });
+    },{threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(n=>observer.observe(n));
+
+    // Fake form submission (replace with real backend when ready)
+    function fakeSubmit(e){
+      e.preventDefault();
+      alert('Thanks! Message sent (this is a demo). Replace with a backend endpoint to accept messages.');
+      e.target.reset();
+    }
+
+    // Helpful: allow quick customization via URL query params: ?name=Your+Name&email=you%40email
+    (function populateFromQuery(){
+      const p = new URLSearchParams(location.search);
+      if(p.get('name')){ document.title = p.get('name') + ' — Portfolio'; document.getElementById('name').textContent = p.get('name'); document.querySelector('.brand h1').textContent = p.get('name'); }
+      if(p.get('email')){ const link = document.querySelector('a[href^="mailto:"]'); link.textContent = p.get('email'); link.href = 'mailto:'+p.get('email'); }
+    })();
+
+  </script></body>
+</html>
