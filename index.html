@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lobhas Gawande — Portfolio</title>
+  <meta name="description" content="Pastel blue & lavender portfolio of Lobhas Gawande — Web Developer & IoT student." />
+  <style>
+    :root{
+      /* Pastel blue + lavender mix */
+      --bg: #eef2ff;           /* soft blue */
+      --bg2: #f5f3ff;          /* soft lavender */
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #6b7280;
+      --accent: #2563eb;       /* blue */
+      --accent-strong: #1d4ed8;
+      --accent-soft: #e0edff;
+      --accent-lav: #e5e0ff;   /* lavender */
+      --border-soft: #c7d2fe;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 16px 40px rgba(15,23,42,0.08);
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:var(--font);
+      background:
+        radial-gradient(circle at top,#e0f2fe 0,#eef2ff 40%,#f5f3ff 80%,#ffffff 100%);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5;
+      opacity:0;
+      animation:bodyFadeIn 650ms cubic-bezier(.16,.84,.34,1) forwards;
+    }
+    @keyframes bodyFadeIn{
+      from{opacity:0;transform:translateY(8px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .page{
+      max-width:1080px;
+      margin:0 auto;
+      padding:20px 18px 56px;
+    }
+
+    /* HEADER */
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:var(--radius-lg);
+      background:rgba(255,255,255,0.9);
+      border:1px solid rgba(199,210,254,0.9);
+      box-shadow:0 12px 32px rgba(129,140,248,0.35);
+      position:sticky;
+      top:12px;
+      z-index:20;
+      backdrop-filter:blur(14px);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .logo{
+      width:40px;height:40px;
+      border-radius:14px;
+      background:conic-gradient(from 210deg,#e0f2fe,#eef2ff,#f5f3ff,#e0f2fe);
+      border:1px solid rgba(129,140,248,0.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:18px;
+      color:#1e293b;
+      box-shadow:0 8px 20px rgba(129,140,248,0.7);
+    }
+    .brand-text h1{
+      font-size:18px;
+      font-weight:800;
+    }
+    .brand-text .muted{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      font-size:13px;
+    }
+    nav a{
+      text-decoration:none;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,234,0.9);
+      background:#f8fafc;
+      color:#1f2937;
+      transition:background 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+      box-shadow:0 5px 14px rgba(148,163,234,0.4);
+    }
+    nav a:hover{
+      background:#e0edff;
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(129,140,248,0.6);
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+      gap:26px;
+      margin-top:26px;
+      align-items:center;
+    }
+    .hero-left,
+    .hero-right{
+      opacity:0;
+      transform:translateY(24px);
+    }
+    .page-ready .hero-left{
+      animation:slideUp 650ms cubic-bezier(.16,.84,.34,1) 80ms forwards;
+    }
+    .page-ready .hero-right{
+      animation:slideUp 650ms cubic-bezier(.16,.84,.34,1) 220ms forwards;
+    }
+    @keyframes slideUp{
+      from{opacity:0;transform:translateY(24px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 11px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.5);
+      background:#ecfeff;
+      font-size:12px;
+      color:#0369a1;
+    }
+    .pill-dot{
+      width:7px;height:7px;
+      border-radius:999px;
+      background:#22c55e;
+    }
+
+    .hero-title{
+      margin-top:14px;
+      font-size:30px;
+      font-weight:900;
+      letter-spacing:0.01em;
+    }
+
+    .hero-sub{
+      margin-top:10px;
+      font-size:13px;
+      color:#4b5563;
+      max-width:430px;
+    }
+
+    .hero-actions{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .btn{
+      border-radius:999px;
+      border:none;
+      padding:9px 16px;
+      font-size:13px;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      cursor:pointer;
+      transition:background 140ms ease, box-shadow 140ms ease, transform 140ms ease, color 140ms ease, border-color 140ms ease;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:#ffffff;
+      box-shadow:0 10px 26px rgba(37,99,235,0.55);
+    }
+    .btn-primary:hover{
+      background:var(--accent-strong);
+      transform:translateY(-1px);
+      box-shadow:0 14px 34px rgba(37,99,235,0.7);
+    }
+    .btn-ghost{
+      background:rgba(255,255,255,0.9);
+      color:#1d4ed8;
+      border:1px solid rgba(129,140,248,0.8);
+    }
+    .btn-ghost:hover{
+      background:var(--accent-lav);
+      box-shadow:0 10px 24px rgba(168,85,247,0.28);
+      color:#312e81;
+    }
+
+    .hero-meta{
+      margin-top:14px;
+      font-size:12px;
+      color:#6b7280;
+    }
+    .hero-meta a{
+      color:#4b5563;
+      text-decoration:underline;
+    }
+
+    .hero-avatar-card{
+      background:rgba(255,255,255,0.96);
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(191,219,254,0.8);
+      box-shadow:var(--shadow-soft);
+      padding:10px;
+    }
+    .hero-avatar{
+      border-radius:var(--radius-md);
+      overflow:hidden;
+      background:linear-gradient(135deg,#dbeafe,#f5f3ff);
+      border:1px solid rgba(191,219,254,0.9);
+    }
+    .hero-avatar img{
+      width:100%;height:auto;display:block;
+      /* no line below image */
+    }
+
+    /* SECTIONS */
+    section{
+      margin-top:32px;
+    }
+    .section-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:8px;
+    }
+    .section-row h2{
+      font-size:18px;
+      font-weight:700;
+    }
+    .section-sub{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(203,213,225,0.7);
+      box-shadow:var(--shadow-soft);
+      padding:16px 18px 16px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(16px);
+      transition:all 550ms cubic-bezier(.16,.84,.34,1);
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    /* ABOUT */
+    .about-text{
+      font-size:13px;
+      color:#4b5563;
+      max-width:640px;
+    }
+    .chips{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .chip{
+      font-size:11px;
+      padding:4px 9px;
+      border-radius:999px;
+      background:#eef2ff;
+      border:1px solid rgba(165,180,252,0.9);
+      color:#3730a3;
+    }
+
+    /* PROJECTS */
+    .project-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .project-icon{
+      width:36px;height:36px;
+      border-radius:14px;
+      background:#e0f2fe;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      color:#075985;
+      box-shadow:0 10px 22px rgba(56,189,248,0.55);
+    }
+    .project-title{
+      font-size:15px;
+      font-weight:700;
+    }
+    .project-desc{
+      font-size:12px;
+      color:#4b5563;
+      margin-top:4px;
+    }
+    .project-tags{
+      margin-top:6px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      font-size:11px;
+    }
+    .project-tag{
+      padding:3px 7px;
+      border-radius:999px;
+      background:#e0f2fe;
+      color:#1d4ed8;
+    }
+
+    /* CERTIFICATES */
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+    .cert-card{
+      background:linear-gradient(145deg,#eef2ff,#f5f3ff);
+      border-radius:22px;
+      border:1px solid var(--border-soft);
+      box-shadow:0 18px 38px rgba(129,140,248,0.4);
+      padding:20px 18px 18px;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:10px;
+    }
+    .cert-icon-wrap{
+      width:70px;height:70px;
+      border-radius:999px;
+      background:#f9fafb;
+      border:1px solid rgba(191,219,254,0.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .cert-icon{
+      font-size:30px;
+    }
+    .cert-title{
+      font-size:16px;
+      font-weight:700;
+      color:#1e293b;
+    }
+    .cert-desc{
+      font-size:13px;
+      color:#4b5563;
+      max-width:260px;
+    }
+    .cert-footer{
+      margin-top:6px;
+    }
+    .cert-view-btn{
+      border:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 16px;
+      border-radius:999px;
+      background:#4ade80;
+      color:#064e3b;
+      font-size:13px;
+      font-weight:600;
+      box-shadow:0 10px 24px rgba(74,222,128,0.5);
+      transition:background 140ms ease, box-shadow 140ms ease, transform 140ms ease, color 140ms ease;
+      text-decoration:none; /* since we use <a> */
+    }
+    .cert-view-btn span.eye{
+      font-size:16px;
+    }
+    .cert-view-btn:hover{
+      background:#22c55e;
+      color:#022c22;
+      transform:translateY(-1px);
+      box-shadow:0 14px 30px rgba(34,197,94,0.6);
+    }
+
+    /* EDUCATION */
+    .edu-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      font-size:12px;
+    }
+    .edu-item{
+      border-radius:var(--radius-md);
+      border:1px solid rgba(203,213,225,0.9);
+      background:#f9fafb;
+      padding:8px 9px 6px;
+      box-shadow:0 10px 22px rgba(148,163,184,0.35);
+    }
+    .edu-item h4{
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:3px;
+    }
+
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);
+      gap:20px;
+    }
+    form input,form textarea{
+      width:100%;
+      font-family:inherit;
+      font-size:13px;
+      padding:9px 10px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(203,213,225,0.9);
+      background:#f9fafb;
+      outline:none;
+      transition:border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+    }
+    form input:focus,form textarea:focus{
+      border-color:#818cf8;
+      background:#ffffff;
+      box-shadow:0 0 0 1px rgba(129,140,248,0.6);
+    }
+    textarea{resize:vertical;min-height:90px;}
+
+    footer{
+      margin-top:34px;
+      font-size:12px;
+      text-align:center;
+      color:#9ca3af;
+    }
+
+    @media (max-width:900px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+      nav{flex-wrap:wrap;}
+      .cert-grid{
+        grid-template-columns:1fr;
+      }
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+      .edu-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media (max-width:640px){
+      .page{
+        padding:16px 10px 40px;
+      }
+      .hero-title{
+        font-size:26px;
+      }
+      nav{display:none;} /* cleaner for mobile */
+      .edu-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="pageRoot">
+    <header>
+      <div class="brand">
+        <div class="logo">LG</div>
+        <div class="brand-text">
+          <h1>Lobhas Gawande</h1>
+          <div class="muted">CSE (IoT) • Web Dev & IoT</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>Open to internships</span>
+        </div>
+        <h2 class="hero-title">Hi, I’m Lobhas.</h2>
+
+        <p class="hero-sub">
+          A Computer Science (IoT) student who enjoys building simple, clean web experiences and practical
+          prototypes using Python, Django and core frontend tools.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Contact me</a>
+          <!-- resume PDF inside assets/ with spaces in name -->
+          <a class="btn btn-ghost" href="lobhas resume.pdf" target="_blank" rel="noopener">
+            View resume
+          </a>
+        </div>
+        <div class="hero-meta">
+          Nagpur, Maharashtra •
+          <a href="mailto:lobhasgawande42@gmail.com">lobhasgawande42@gmail.com</a>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-avatar-card">
+          <div class="hero-avatar">
+            <!-- Replace with your own image -->
+            <img src="image.png" alt="Lobhas Gawande" />
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <div class="section-row">
+        <h2>About</h2>
+        <div class="section-sub">Short intro — more details in my resume</div>
+      </div>
+      <div class="card">
+        <p class="about-text">
+          I’m a B.Tech CSE (IoT) student with a Diploma in Computer Technology. I like turning ideas into working
+          prototypes: a clear UI, simple user flows and a backend that actually runs. I mainly work with Python,
+          Django and core web technologies.
+        </p>
+        <div class="chips">
+          <span class="chip">Python & Django</span>
+          <span class="chip">HTML • CSS • JavaScript</span>
+          <span class="chip">IoT basics</span>
+          <span class="chip">Git & GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+      <div class="section-row">
+        <h2>Project</h2>
+  
+      </div>
+      <div class="card">
+        <div class="project-item">
+          <div class="project-icon">💊</div>
+          <div>
+            <div class="project-title">QuickMeds — Online Medicine Delivery</div>
+            <div class="project-desc">
+              A Django-based web application where users can browse medicines, manage a cart and place orders.
+              It includes authentication, basic admin controls and order tracking views using MySQL for data storage.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Django</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">HTML/CSS/JS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="reveal">
+      <div class="section-row">
+        <h2>Certificates</h2>
+        <div class="section-sub">Click “View” to see each certificate</div>
+      </div>
+      <div class="card">
+        <div class="cert-grid">
+          <!-- TCS iON -->
+          <div class="cert-card">
+            <div class="cert-icon-wrap">
+              <div class="cert-icon">🎓</div>
+            </div>
+            <div class="cert-title">TCS iON Certification</div>
+            <div class="cert-desc">
+              Certification issued by TCS iON, highlighting my foundational skills and industry readiness.
+            </div>
+            <div class="cert-footer">
+              <a
+                class="cert-view-btn"
+                href="tcsion.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="eye">👁</span> View
+              </a>
+            </div>
+          </div>
+
+          <!-- WASTEEM-2025 -->
+          <div class="cert-card">
+            <div class="cert-icon-wrap">
+              <div class="cert-icon">🌍</div>
+            </div>
+            <div class="cert-title">WASTEEM-2025</div>
+            <div class="cert-desc">
+              Certificate from WASTEEM-2025, National Institute of Technology Jamshedpur.
+            </div>
+            <div class="cert-footer">
+              <a
+                class="cert-view-btn"
+                href="wastem nit .pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="eye">👁</span> View
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="reveal">
+      <div class="section-row">
+        <h2>Education</h2>
+        <div class="section-sub">Just the essentials</div>
+      </div>
+      <div class="card">
+        <div class="edu-grid">
+          <div class="edu-item">
+            <h4>B.Tech — CSE (IoT)</h4>
+            <div>GH Raisoni College of Engineering</div>
+            <div>2025 – 2028</div>
+          </div>
+          <div class="edu-item">
+            <h4>Diploma — Computer Technology</h4>
+            <div>MSBTE</div>
+            <div>2022 – 2025</div>
+          </div>
+          <div class="edu-item">
+            <h4>Secondary School</h4>
+            <div>Sanjuba High School</div>
+            <div>2010 – 2022</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <div class="section-row">
+        <h2>Contact</h2>
+        <div class="section-sub">Let’s talk about internships or projects</div>
+      </div>
+      <div class="card">
+        <div class="contact-grid">
+          <div>
+            <p class="about-text">
+              If you’d like to collaborate or discuss an internship opportunity, feel free to reach out by email
+              or send a short message through this form.
+            </p>
+            <div style="margin-top:10px;font-size:13px;">
+              <div><strong>GitHub:</strong> <a href="https://github.com/lobh42">github.com/lobh42</a></div>
+              <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lobhas-gawande">linkedin.com/in/lobhas-gawande</a></div>
+            </div>
+          </div>
+          <div>
+            <form onsubmit="fakeSubmit(event)">
+              <input type="text" name="name" placeholder="Your name" required />
+              <div style="height:8px"></div>
+              <input type="email" name="email" placeholder="Your email" required />
+              <div style="height:8px"></div>
+              <textarea name="message" placeholder="Say hello or share an opportunity"></textarea>
+              <div style="height:10px"></div>
+              <button class="btn btn-primary" type="submit">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Lobhas Gawande • Pastel blue & lavender portfolio
+    </footer>
+  </div>
+
+  <script>
+    const pageRoot = document.getElementById('pageRoot');
+    window.addEventListener('load', () => {
+      pageRoot.classList.add('page-ready');
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+        }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Fake form
+    function fakeSubmit(e){
+      e.preventDefault();
+      alert("Thanks! This is a demo form — connect it to your backend or service later.");
+      e.target.reset();
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
